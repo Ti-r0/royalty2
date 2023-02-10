@@ -1,0 +1,328 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #78B674;
+        background-size: cover;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+		.profile-bio2 {
+		  text-align: center;
+		  width: 80%;
+		  margin-bottom: 30px;
+		}
+
+      .profile {
+        background-image: url("https://media.tenor.com/ruRcXtOCu3UAAAAC/green-nature.gif");
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 20px;
+        padding: 20px;
+        width: 600px;
+        height: 300px;
+        box-shadow: 0px 0px 15px white;
+        margin: 20px auto;
+        animation: fadeIn 1s;
+        position: relative;
+      }
+	  
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+		.profile-image {
+width: 100px;
+height: 100px;
+border-radius: 50%;
+overflow: hidden;
+margin: 20px 0;
+max-width: 100%;
+max-height: 100%;
+transition: transform 0.5s ease;
+		}
+
+
+      .profile-image img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .profile-name, .profile-bio, .profile-bio2, .friends-button, .friend-name, .close-button {
+        color: #628D65;
+      }
+
+      .profile-name {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .profile-bio {
+        text-align: center;
+        width: 80%;
+        margin-bottom: 0px;
+      }
+
+      .friends-list {
+        display: none;
+        flex-wrap: wrap;
+        justify-content: center;
+        animation: fadeIn 1s;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 20px 0;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      .close-button {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        font-size: 36px;
+        font-weight: bold;
+      }
+		a {
+		  text-decoration: none;
+		}
+
+		.friend {
+		  width: 40px;
+		  height: 40px;
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		  background-color: #71B275;
+		  margin: 10px;
+		  animation: slideIn 1s;
+		  position: relative;
+		}
+
+		.friend::before, .friend::after {
+		  content: "";
+		  position: absolute;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 20px 20px 0;
+		  transform: rotate(45deg);
+		  background-color: #71B275;
+		}
+
+		.friend::before {
+		  top: -10px;
+		  left: 0px;
+		}
+
+		.friend::after {
+		  top: 0px;
+		  left: -10px;
+		}
+
+
+      @      keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0%);
+        }
+      }
+
+		.friend-name {
+		  font-size: 18px;
+		  font-weight: bold;
+		  color: white;
+		  text-decoration: none;
+		}
+
+.friends-container {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.profile-image:hover {
+  transform: scale(1.2);
+}
+
+
+.friends-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  transition: background 0.5s ease;
+  margin: 20px auto;
+}
+
+.active#heart:before,
+.active#heart:after {
+  background: red !important;
+}
+
+#heart {
+  width: 50px;
+  height: 45px;
+  transition: background 0.5s ease;
+  margin: 0 auto;
+  display: block;
+}
+
+#heart:before,
+#heart:after {
+  transition: background 0.5s ease;
+  position: absolute;
+  content: "";
+  left: 25px;
+  top: 0;
+  width: 25px;
+  height: 40px;
+  background: dimgrey;
+  border-radius: 25px 25px 0 0;
+  transform: rotate(-45deg);
+  transform-origin: 0 100%;
+}
+
+#heart:after {
+  left: 0;
+  transform: rotate(45deg);
+  transform-origin :100% 100%;
+}
+
+
+		.footer {
+		  position: fixed;
+		  bottom: 0;
+		  left: 0;
+		  right: 0;
+		  background-color: #78B674;
+		  color: #628D65;
+		  text-align: center;
+		  padding: 10px;
+		}
+
+
+    </style>
+  </head>
+  <body>
+    <div class="profile">
+      <div class="profile-image">
+        <img src="https://media.everskies.com/_xHyzKeBzM0l_z6n2xip.png" alt="Profile picture">
+      </div>
+      <div class="profile-name">Royalty</div>
+      <div class="profile-bio">Tiro my luv</div>
+	  <div class="profile-bio2">Now playing: <span id="current-track"></span></div>
+      <div id='heart' class='friends-button'></div>
+      <div class="friends-list">
+        <div class="close-button">x</div>
+		
+		<a href="https://xat.me/Reaper">
+		  <div class="friend">
+			<div class="friend-name">luv</div>
+		  </div>
+		</a>
+
+
+		<a href="https://xat.me/Wolfie">
+		  <div class="friend">
+			<div class="friend-name">wolf</div>
+		  </div>
+		</a>
+
+        <!-- Add more friends here -->
+
+		<a href="https://xat.me/jadiction">
+		  <div class="friend">
+			<div class="friend-name">jad</div>
+		  </div>
+		</a>
+
+		<a href="https://xat.me/dork">
+		  <div class="friend">
+			<div class="friend-name">nat</div>
+		  </div>
+		</a>
+
+		<a href="https://xat.me/marie">
+		  <div class="friend">
+			<div class="friend-name">rae</div>
+		  </div>
+		</a>
+
+		<a href="https://xat.me/lemona">
+		  <div class="friend">
+			<div class="friend-name">lem</div>
+		  </div>
+		</a>
+
+		<a href="https://xat.me/bunnie">
+		  <div class="friend">
+			<div class="friend-name">bun</div>
+		  </div>
+		</a>
+
+
+		<a href="https://xat.me/l1ght5">
+		  <div class="friend">
+			<div class="friend-name">iman</div>
+		  </div>
+		</a>
+
+      </div>
+    </div>
+	
+	  <div class="footer">
+    T1r0 th3 gr8
+  </div>
+	
+	<script>
+		  function updateSong() {
+		// Get the current track element
+		const currentTrack = document.querySelector("#current-track");
+
+		// Replace ACCESS_TOKEN with the actual access token you obtained
+		const headers = {
+		  "Authorization": "Bearer BQAUkJdDVN6eki10CQElzKCqInXNwoREeGXblOxcGZGwdgSkGX1EMHcd8ELv3gE5HCyVRT7lL-S2G67KVTOE6GB22j_qAUEvF8ESBk-O9_qAv6Z9JRB6MwRdYb5gsMl17sjRhy2nN4gznX8_KVc3D4MTAGVUaBKgjSIbmmkqabkpq-Rty0w5cpQvT267nraN_f9Nzanebm5oR6WzATBGkv3vquKci90Sy0lxxYrSrbJElEln5eFiIeHLjF6vOfiI3iYZ2jUG6FBid4IZ3t8r7k00SEq_x_vCtB03YkTSxP5BKge-3iiOazs0"
+		};
+
+		fetch("https://api.spotify.com/v1/me/player/currently-playing", { headers })
+		  .then(response => response.json())
+		  .then(data => {
+			// Update the current track element with the track name
+			currentTrack.innerText = data.item.name;
+		  });
+	  }
+		  
+		  setInterval(updateSong, 1000); // Call the updateSong function every 5 seconds
+		  </script>
+
+
+    <script>
+      const friendsButton = document.querySelector(".friends-button");
+      const friendsList = document.querySelector(".friends-list");
+      const closeButton = document.querySelector(".close-button");
+
+      friendsButton.addEventListener("click", function() {
+        friendsList.style.display = "flex";
+      });
+
+      closeButton.addEventListener("click", function() {
+        friendsList.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
